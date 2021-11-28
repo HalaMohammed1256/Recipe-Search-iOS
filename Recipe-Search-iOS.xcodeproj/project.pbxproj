@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		2B8604242750D7DD00727A8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8604222750D7DD00727A8E /* LaunchScreen.storyboard */; };
 		2B8604302750DF5600727A8E /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B86042F2750DF5600727A8E /* APIServices.swift */; };
 		2B8604322750DF8300727A8E /* APIUrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8604312750DF8300727A8E /* APIUrls.swift */; };
+		BAD4C45F89DC21B2F92A7CC7 /* Pods_Recipe_Search_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E285BF96063EC581D3BFD70A /* Pods_Recipe_Search_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		2B8604252750D7DD00727A8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B86042F2750DF5600727A8E /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		2B8604312750DF8300727A8E /* APIUrls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUrls.swift; sourceTree = "<group>"; };
+		60F123DDB52E41765C5AA239 /* Pods-Recipe-Search-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe-Search-iOS.release.xcconfig"; path = "Target Support Files/Pods-Recipe-Search-iOS/Pods-Recipe-Search-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		E285BF96063EC581D3BFD70A /* Pods_Recipe_Search_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recipe_Search_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4841AF2F17E60B4FEFB8EDD /* Pods-Recipe-Search-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipe-Search-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Recipe-Search-iOS/Pods-Recipe-Search-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD4C45F89DC21B2F92A7CC7 /* Pods_Recipe_Search_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043C52B89678F70718EBCECB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E285BF96063EC581D3BFD70A /* Pods_Recipe_Search_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2B86040B2750D7DC00727A8E = {
 			isa = PBXGroup;
 			children = (
 				2B8604162750D7DC00727A8E /* Recipe-Search-iOS */,
 				2B8604152750D7DC00727A8E /* Products */,
+				BA85DA74BBD49F0146C9A220 /* Pods */,
+				043C52B89678F70718EBCECB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,7 +75,6 @@
 				2B86042C2750DEFB00727A8E /* Resources */,
 				2B86042E2750DF3C00727A8E /* Network */,
 				2B86041B2750D7DC00727A8E /* ViewController.swift */,
-				2B8604222750D7DD00727A8E /* LaunchScreen.storyboard */,
 				2B8604252750D7DD00727A8E /* Info.plist */,
 			);
 			path = "Recipe-Search-iOS";
@@ -78,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				2B8604202750D7DD00727A8E /* Assets.xcassets */,
+				2B8604222750D7DD00727A8E /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -91,6 +106,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		BA85DA74BBD49F0146C9A220 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F4841AF2F17E60B4FEFB8EDD /* Pods-Recipe-Search-iOS.debug.xcconfig */,
+				60F123DDB52E41765C5AA239 /* Pods-Recipe-Search-iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -98,9 +122,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B8604282750D7DD00727A8E /* Build configuration list for PBXNativeTarget "Recipe-Search-iOS" */;
 			buildPhases = (
+				8B21617DCFEB81FD40665CCD /* [CP] Check Pods Manifest.lock */,
 				2B8604102750D7DC00727A8E /* Sources */,
 				2B8604112750D7DC00727A8E /* Frameworks */,
 				2B8604122750D7DC00727A8E /* Resources */,
+				D1C24B4528125AFD5D793EA8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,6 +180,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8B21617DCFEB81FD40665CCD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Recipe-Search-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1C24B4528125AFD5D793EA8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Recipe-Search-iOS/Pods-Recipe-Search-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Recipe-Search-iOS/Pods-Recipe-Search-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Recipe-Search-iOS/Pods-Recipe-Search-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2B8604102750D7DC00727A8E /* Sources */ = {
@@ -299,6 +367,7 @@
 		};
 		2B8604292750D7DD00727A8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4841AF2F17E60B4FEFB8EDD /* Pods-Recipe-Search-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -317,6 +386,7 @@
 		};
 		2B86042A2750D7DD00727A8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60F123DDB52E41765C5AA239 /* Pods-Recipe-Search-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
