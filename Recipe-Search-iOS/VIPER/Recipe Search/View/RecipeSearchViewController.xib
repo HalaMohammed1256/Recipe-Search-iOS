@@ -32,33 +32,33 @@
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3l-Ke-IR3">
-                    <rect key="frame" x="0.0" y="202" width="414" height="644"/>
+                    <rect key="frame" x="0.0" y="126" width="414" height="720"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Tr-hq-zAy">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="383"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="367"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recipe-search-not-exist" translatesAutoresizingMaskIntoConstraints="NO" id="eFT-Ut-YcR">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recipe-search-not-exist" translatesAutoresizingMaskIntoConstraints="NO" id="eFT-Ut-YcR">
                                     <rect key="frame" x="62" y="32" width="290" height="290"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="eFT-Ut-YcR" secondAttribute="height" multiplier="1:1" id="hsm-Ip-B05"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAR-Pk-ImL">
-                                    <rect key="frame" x="8" y="338" width="398" height="29"/>
+                                    <rect key="frame" x="16" y="322" width="382" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                    <nil key="textColor"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="FAR-Pk-ImL" secondAttribute="trailing" constant="8" id="4ea-zj-BDN"/>
+                                <constraint firstAttribute="trailing" secondItem="FAR-Pk-ImL" secondAttribute="trailing" constant="16" id="4ea-zj-BDN"/>
                                 <constraint firstItem="eFT-Ut-YcR" firstAttribute="width" secondItem="8Tr-hq-zAy" secondAttribute="width" multiplier="0.7" id="8rs-8W-lpH"/>
                                 <constraint firstItem="eFT-Ut-YcR" firstAttribute="top" secondItem="8Tr-hq-zAy" secondAttribute="top" constant="32" id="Am6-Ag-ihH"/>
                                 <constraint firstAttribute="bottom" secondItem="FAR-Pk-ImL" secondAttribute="bottom" constant="16" id="IG4-0G-3Ed"/>
-                                <constraint firstItem="FAR-Pk-ImL" firstAttribute="leading" secondItem="8Tr-hq-zAy" secondAttribute="leading" constant="8" id="mpN-yt-EkH"/>
+                                <constraint firstItem="FAR-Pk-ImL" firstAttribute="leading" secondItem="8Tr-hq-zAy" secondAttribute="leading" constant="16" id="mpN-yt-EkH"/>
                                 <constraint firstItem="eFT-Ut-YcR" firstAttribute="centerX" secondItem="8Tr-hq-zAy" secondAttribute="centerX" id="nYy-Ot-yKO"/>
-                                <constraint firstItem="FAR-Pk-ImL" firstAttribute="top" secondItem="eFT-Ut-YcR" secondAttribute="bottom" constant="16" id="pHh-0o-KfA"/>
+                                <constraint firstItem="FAR-Pk-ImL" firstAttribute="top" secondItem="eFT-Ut-YcR" secondAttribute="bottom" id="pHh-0o-KfA"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -70,7 +70,7 @@
                         <constraint firstItem="8Tr-hq-zAy" firstAttribute="width" secondItem="c3l-Ke-IR3" secondAttribute="width" id="Jhf-SJ-31f"/>
                     </constraints>
                 </scrollView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="WCB-G2-CfK">
+                <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="WCB-G2-CfK">
                     <rect key="frame" x="16" y="126" width="382" height="60"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -91,6 +91,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="c3l-Ke-IR3" firstAttribute="top" secondItem="vjw-LT-g9k" secondAttribute="bottom" constant="16" id="2Uc-ku-JKY"/>
                 <constraint firstItem="WCB-G2-CfK" firstAttribute="top" secondItem="vjw-LT-g9k" secondAttribute="bottom" constant="16" id="4x3-bf-git"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="c3l-Ke-IR3" secondAttribute="bottom" constant="16" id="DiT-SK-AHH"/>
                 <constraint firstItem="vjw-LT-g9k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Kb7-nR-ARh"/>
@@ -100,7 +101,6 @@
                 <constraint firstItem="vjw-LT-g9k" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="eze-Hv-BOj"/>
                 <constraint firstItem="COv-lY-vIP" firstAttribute="top" secondItem="WCB-G2-CfK" secondAttribute="bottom" constant="16" id="fJM-i3-hKz"/>
                 <constraint firstItem="c3l-Ke-IR3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ikb-6n-4tq"/>
-                <constraint firstItem="c3l-Ke-IR3" firstAttribute="top" secondItem="WCB-G2-CfK" secondAttribute="bottom" constant="16" id="l1R-FZ-DSf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="COv-lY-vIP" secondAttribute="trailing" constant="16" id="qxu-DG-Edo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vjw-LT-g9k" secondAttribute="trailing" constant="16" id="sZh-mt-Mvo"/>
                 <constraint firstItem="WCB-G2-CfK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="uQX-B9-8kY"/>
@@ -110,7 +110,7 @@
         </view>
     </objects>
     <resources>
-        <image name="recipe-search-not-exist" width="230" height="230"/>
+        <image name="recipe-search-not-exist" width="150" height="150"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

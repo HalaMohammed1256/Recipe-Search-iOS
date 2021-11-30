@@ -10,7 +10,7 @@ import UIKit
 
 protocol RecipeSearchViewProtocol: AnyObject {
     var presenter: RecipeSearchPresenterProtocol? { get set }
-    func searchResultDataVisability(isHidden: Bool)
+    func searchResultDataVisability(isHidden: Bool, message: String)
     func showAlert(message: String)
     func showLoadingIndicator()
     func hideLoadingIndicator()

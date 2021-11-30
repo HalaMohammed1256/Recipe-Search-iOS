@@ -33,7 +33,8 @@ class RecipeResultTableViewCell: UITableViewCell, RecipeSearchResultSearchCell {
         }
         recipeNameLabel.text = model.label ?? "Recipe Name"
         recipeSourceLabel.text = model.source ?? "Recipe Source Label"
-        let healthLabels = model.healthLabels?.joined().replacingOccurrences(of: ",", with: " ")
+        let healthLabels = model.healthLabels?.joined(separator: "| ")//joined().replacingOccurrences(of: ",", with: " ")
+        print("")
         recipeHealthLabel.text = healthLabels
         
     }

@@ -38,6 +38,7 @@ class RecipeSearchViewController: UIViewController {
     
     func configureEllement(){
         title = "Recipes Search"
+        noSearchResultStateLabel.text = "Type your recipe that you searching for"
         setupDelegatesAndCells()
     }
     
@@ -61,9 +62,11 @@ class RecipeSearchViewController: UIViewController {
 
 extension RecipeSearchViewController: RecipeSearchViewProtocol{    
     
-    func searchResultDataVisability(isHidden: Bool){
+    func searchResultDataVisability(isHidden: Bool, message: String){
         recipeSearchResultTableView.isHidden = isHidden
+        recipeSearchCategoryCollectionView.isHidden = isHidden
         noSearchResultScrollView.isHidden = !isHidden
+        noSearchResultStateLabel.text = message
     }
     
     func showAlert(message: String) {

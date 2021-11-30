@@ -7,6 +7,10 @@
 
 import Foundation
 
+//enum RecipeCategory {
+//    case 
+//}
+
 
 class RecipeSearchPresenter: RecipeSearchPresenterProtocol, RecipeSearchInteractorOutputProtocol {
     
@@ -40,16 +44,21 @@ class RecipeSearchPresenter: RecipeSearchPresenterProtocol, RecipeSearchInteract
     }
     
     func recipeSearchResultFetchedSuccessfully(recipes: [Recipe]) {
-        self.recipes.append(contentsOf: recipes)
-        view?.searchResultDataVisability(isHidden: false)
-        view?.reloadData()
+        if recipes.count == 0{
+            view?.searchResultDataVisability(isHidden: true, message: "Your search not exist")
+        }else{
+            self.recipes.append(contentsOf: recipes)
+            view?.searchResultDataVisability(isHidden: false, message: "Type your recipe that you searching for")
+            view?.reloadData()
+        }
+        
         view?.hideLoadingIndicator()
     }
     
     
     func recipeSearchResultFetchingFailed(withError error: Error) {
         view?.hideLoadingIndicator()
-        view?.searchResultDataVisability(isHidden: true)
+        view?.searchResultDataVisability(isHidden: true, message: "Type your recipe that you searching for")
         view?.showAlert(message: error.localizedDescription)
     }
     

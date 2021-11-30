@@ -122,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				2B86042B2750D82600727A8E /* Delegates */,
+				2B86042C2750DEFB00727A8E /* Resources */,
 				2B8AB70827538C85004EE730 /* Extension */,
 				2B8AB6F527538829004EE730 /* Entities */,
 				2B86042E2750DF3C00727A8E /* Network */,
@@ -228,7 +229,6 @@
 		2B8AB6FC2753889E004EE730 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				2B86042C2750DEFB00727A8E /* Resources */,
 				2B8AB71027538F25004EE730 /* Category */,
 				2B8AB71127538F2F004EE730 /* Result */,
 			);
