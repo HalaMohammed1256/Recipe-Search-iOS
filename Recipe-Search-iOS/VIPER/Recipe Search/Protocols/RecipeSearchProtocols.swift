@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+ 
 
 protocol RecipeSearchViewProtocol: AnyObject {
     var presenter: RecipeSearchPresenterProtocol? { get set }
@@ -20,10 +20,13 @@ protocol RecipeSearchViewProtocol: AnyObject {
 protocol RecipeSearchPresenterProtocol: AnyObject {
     var view: RecipeSearchViewProtocol? { get set }
     var numberOfCategoryItem: Int { get }
+    var categories: [RecipeCategory] { get set }
     var numberOfSearchResultRow: Int { get }
-    func getSearchResult(searchText: String)
-    func configureCategory(cell: RecipeSearchCategorySearchCell, indexPath: IndexPath)
-    func configureResult(cell: RecipeResultTableViewCell, indexPath: IndexPath)
+    func getRecipDetails(indexPath: IndexPath) -> RecipeData?
+    func getCategoryName(indexPath: IndexPath) -> String
+    func getSearchResult(searchText: String, filter: String?)
+    func configureCategory(cell: RecipeSearchCategorySearchCellProtocol, indexPath: IndexPath)
+    func configureResult(cell: RecipeSearchResultSearchCellProtocol, indexPath: IndexPath)
 }
 
 protocol RecipeSearchRouterProtocol: AnyObject {
@@ -34,22 +37,22 @@ protocol RecipeSearchRouterProtocol: AnyObject {
 // Interactor Protocols
 protocol RecipeSearchInteractorInputProtocol: AnyObject {
     var recipeSearchOutput: RecipeSearchInteractorOutputProtocol? { get set }
-    func getSearchResult(searchText: String)
+    func getSearchResult(searchText: String, filter: String?)
     func getSearchCategory()
 }
 
 protocol RecipeSearchInteractorOutputProtocol: AnyObject {
     func recipeSearchResultFetchedSuccessfully(recipes: [Recipe])
     func recipeSearchResultFetchingFailed(withError error: Error)
-    func recipeSearchCategoryFetchedSuccessfully() //??
-    func recipeSearchCategoryFetchingFailed(withError error: Error)
+//    func recipeSearchCategoryFetchedSuccessfully() //??
+//    func recipeSearchCategoryFetchingFailed(withError error: Error)
 }
 
 // cells
-protocol RecipeSearchResultSearchCell {
+protocol RecipeSearchResultSearchCellProtocol {
     func configure(model: RecipeData)
 }
 
-protocol RecipeSearchCategorySearchCell {
-    func configure(model: String) //??
+protocol RecipeSearchCategorySearchCellProtocol {
+    func configure(model: RecipeCategory) //??
 }

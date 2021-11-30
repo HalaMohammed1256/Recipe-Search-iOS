@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecipeCategoryCollectionViewCell: UICollectionViewCell {
+class RecipeCategoryCollectionViewCell: UICollectionViewCell, RecipeSearchCategorySearchCellProtocol {
     
     
     @IBOutlet weak var categoryNameLabel: UILabel!
@@ -15,6 +15,10 @@ class RecipeCategoryCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func configure(model: RecipeCategory) {
+        categoryNameLabel.text = model.name
     }
 
 }

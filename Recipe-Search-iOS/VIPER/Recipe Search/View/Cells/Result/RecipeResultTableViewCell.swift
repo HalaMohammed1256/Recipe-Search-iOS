@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class RecipeResultTableViewCell: UITableViewCell, RecipeSearchResultSearchCell {
+class RecipeResultTableViewCell: UITableViewCell, RecipeSearchResultSearchCellProtocol {
     
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
@@ -34,7 +34,6 @@ class RecipeResultTableViewCell: UITableViewCell, RecipeSearchResultSearchCell {
         recipeNameLabel.text = model.label ?? "Recipe Name"
         recipeSourceLabel.text = model.source ?? "Recipe Source Label"
         let healthLabels = model.healthLabels?.joined(separator: "| ")//joined().replacingOccurrences(of: ",", with: " ")
-        print("")
         recipeHealthLabel.text = healthLabels
         
     }

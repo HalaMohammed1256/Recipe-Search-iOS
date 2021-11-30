@@ -13,8 +13,8 @@ class RecipeSearchInteractor: RecipeSearchInteractorInputProtocol {
     weak var recipeSearchOutput: RecipeSearchInteractorOutputProtocol?
     private var searchWorker = RecipeSearchWorker()
     
-    func getSearchResult(searchText: String) {
-        searchWorker.getSearchResult(searchText: searchText) { [weak self] result in
+    func getSearchResult(searchText: String, filter: String?) {
+        searchWorker.getSearchResult(searchText: searchText, filter: filter) { [weak self] result in
             switch result{
             case .success(let recipe):
                 guard let recipes = recipe.recipes else{

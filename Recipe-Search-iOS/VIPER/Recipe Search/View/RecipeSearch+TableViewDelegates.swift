@@ -17,6 +17,12 @@ extension RecipeSearchViewController: UITableViewDelegate, UITableViewDataSource
             return UITableViewCell()
         }
         presenter?.configureResult(cell: cell, indexPath: indexPath)
-         return cell
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = RecipeDetailsRouter().createModule() as! RecipeDetailsViewController
+        viewController.recipeData = presenter?.getRecipDetails(indexPath: indexPath)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

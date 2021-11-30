@@ -8,7 +8,7 @@
 import UIKit
 
 class RecipeSearchRouter: RecipeSearchRouterProtocol {
-    
+     
     weak var viewController: UIViewController?
         
     static func createModule() -> UIViewController {

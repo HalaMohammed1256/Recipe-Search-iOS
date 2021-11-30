@@ -9,6 +9,8 @@ class RecipeSearchViewController: UIViewController {
     // variables
     var presenter: RecipeSearchPresenterProtocol?
     private let spinner = JGProgressHUD()
+    var categorySelectedIndex = 0
+    var searchText: String?
         
     
     // outlets
@@ -55,7 +57,6 @@ class RecipeSearchViewController: UIViewController {
         recipeSearchResultTableView.registerCell(cellClass: RecipeResultTableViewCell.self)
         
     }
-   
 
 }
 
@@ -64,9 +65,14 @@ extension RecipeSearchViewController: RecipeSearchViewProtocol{
     
     func searchResultDataVisability(isHidden: Bool, message: String){
         recipeSearchResultTableView.isHidden = isHidden
-        recipeSearchCategoryCollectionView.isHidden = isHidden
         noSearchResultScrollView.isHidden = !isHidden
-        noSearchResultStateLabel.text = message
+        if isHidden && categorySelectedIndex != 0{
+            recipeSearchCategoryCollectionView.isHidden = !isHidden
+            noSearchResultStateLabel.text = "Your Search With Selected Filter Not Exist"
+        }else{
+            recipeSearchCategoryCollectionView.isHidden = isHidden
+            noSearchResultStateLabel.text = message
+        }
     }
     
     func showAlert(message: String) {
@@ -83,5 +89,6 @@ extension RecipeSearchViewController: RecipeSearchViewProtocol{
     
     func reloadData() {
         recipeSearchResultTableView.reloadData()
+        recipeSearchCategoryCollectionView.reloadData()
     }    
 }

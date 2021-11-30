@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecipeDetailsTableViewCell: UITableViewCell {
+class RecipeDetailsTableViewCell: UITableViewCell, configureRecipDetailsCellProtocol {
 
     @IBOutlet weak var recipeDetailsLabel: UILabel!
     
@@ -20,6 +20,15 @@ class RecipeDetailsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCell(recipeDataModel: RecipeDataViewModel?) {
+        if let name = recipeDataModel?.label{
+            recipeDetailsLabel.text = name
+        }
+        if let ingredient = recipeDataModel?.ingredient{
+            recipeDetailsLabel.text = ingredient
+        }
     }
     
 }

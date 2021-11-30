@@ -18,15 +18,15 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMh-5a-aVT">
-                        <rect key="frame" x="8" y="8" width="304" height="28"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="8" y="8" width="304" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="tMh-5a-aVT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Btk-ww-T6M"/>
-                    <constraint firstAttribute="bottom" secondItem="tMh-5a-aVT" secondAttribute="bottom" constant="8" id="CD4-g1-Fcz"/>
+                    <constraint firstAttribute="bottom" secondItem="tMh-5a-aVT" secondAttribute="bottom" constant="16" id="CD4-g1-Fcz"/>
                     <constraint firstItem="tMh-5a-aVT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="bGd-E1-wr1"/>
                     <constraint firstAttribute="trailing" secondItem="tMh-5a-aVT" secondAttribute="trailing" constant="8" id="ehg-zB-ZT9"/>
                 </constraints>

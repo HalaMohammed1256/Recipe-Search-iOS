@@ -71,12 +71,12 @@
                     </constraints>
                 </scrollView>
                 <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="WCB-G2-CfK">
-                    <rect key="frame" x="16" y="126" width="382" height="60"/>
+                    <rect key="frame" x="16" y="126" width="382" height="50"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="xQ0-Uu-N9E"/>
+                        <constraint firstAttribute="height" constant="50" id="xQ0-Uu-N9E"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o78-rx-iVI">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o78-rx-iVI">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -84,7 +84,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="COv-lY-vIP">
-                    <rect key="frame" x="16" y="202" width="382" height="644"/>
+                    <rect key="frame" x="16" y="192" width="382" height="654"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>

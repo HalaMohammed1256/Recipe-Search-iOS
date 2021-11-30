@@ -17,3 +17,12 @@ struct RecipeData : Codable {
     let ingredientLines : [String]?
 }
 
+
+struct RecipeDataViewModel {
+    let label : String?
+    let ingredient : String?
+    init(label: String?, integrate: String?) {
+        self.label = label
+        self.ingredient = integrate
+    }
+}

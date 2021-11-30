@@ -7,21 +7,54 @@
 
 import Foundation
 
-//enum RecipeCategory {
-//    case 
-//}
+enum RecipeCategory {
+    case All
+    case Low_Sugar
+    case Keto
+    case Vegan
+    
+    var name: String{
+        switch self {
+        case .All:
+            return "All"
+        case .Low_Sugar:
+            return "Low Sugar"
+        case .Keto:
+            return "Keto"
+        case .Vegan:
+            return "Vegan"
+        }
+    }
+    
+    var filterAPIName: String?{
+        switch self {
+        case .All:
+            return nil
+        case .Low_Sugar:
+            return "low-sugar"
+        case .Keto:
+            return "keto-friendly"
+        case .Vegan:
+            return "vegan"
+        }
+    }
+}
 
 
 class RecipeSearchPresenter: RecipeSearchPresenterProtocol, RecipeSearchInteractorOutputProtocol {
-    
     
     weak var view: RecipeSearchViewProtocol?
     private var interactor: RecipeSearchInteractorInputProtocol?
     private var router: RecipeSearchRouterProtocol?
     private var recipes = [Recipe]()
+    internal var categories: [RecipeCategory] = [.All, .Low_Sugar, .Keto, .Vegan]
     
     var numberOfSearchResultRow: Int{
         return recipes.count
+    }
+    
+    var numberOfCategoryItem: Int{
+        return categories.count
     }
     
     init(view: RecipeSearchViewProtocol, interactor: RecipeSearchInteractorInputProtocol, router: RecipeSearchRouterProtocol) {
@@ -30,28 +63,20 @@ class RecipeSearchPresenter: RecipeSearchPresenterProtocol, RecipeSearchInteract
         self.router = router
     }
     
-    func getSearchResult(searchText: String) {
+    func getSearchResult(searchText: String, filter: String?) {
         view?.showLoadingIndicator()
-        interactor?.getSearchResult(searchText: searchText)
+        interactor?.getSearchResult(searchText: searchText, filter: filter)
     }
     
-    func configureResult(cell: RecipeResultTableViewCell, indexPath: IndexPath) {
-        let recipe = recipes[indexPath.row]
-        guard let recipeData = recipe.recipe else {
-            return
-        }
-        cell.configure(model: recipeData)
-    }
     
     func recipeSearchResultFetchedSuccessfully(recipes: [Recipe]) {
         if recipes.count == 0{
             view?.searchResultDataVisability(isHidden: true, message: "Your search not exist")
         }else{
-            self.recipes.append(contentsOf: recipes)
+            self.recipes = recipes
             view?.searchResultDataVisability(isHidden: false, message: "Type your recipe that you searching for")
-            view?.reloadData()
         }
-        
+        view?.reloadData()
         view?.hideLoadingIndicator()
     }
     
@@ -62,23 +87,27 @@ class RecipeSearchPresenter: RecipeSearchPresenterProtocol, RecipeSearchInteract
         view?.showAlert(message: error.localizedDescription)
     }
     
-    //??
-    
-    var numberOfCategoryItem: Int{
-        return 1//recipes.count
+    func configureResult(cell: RecipeSearchResultSearchCellProtocol, indexPath: IndexPath) {
+        let recipe = recipes[indexPath.row]
+        guard let recipeData = recipe.recipe else {
+            return
+        }
+        cell.configure(model: recipeData)
     }
     
-    func configureCategory(cell: RecipeSearchCategorySearchCell, indexPath: IndexPath) {
+    func getRecipDetails(indexPath: IndexPath) -> RecipeData?{
+        return recipes[indexPath.row].recipe
+    }
+    
         
+    func configureCategory(cell: RecipeSearchCategorySearchCellProtocol, indexPath: IndexPath) {
+        let category = categories[indexPath.row]
+        cell.configure(model: category)
     }
     
-    func recipeSearchCategoryFetchedSuccessfully() {
-
+    func getCategoryName(indexPath: IndexPath) -> String{
+        return categories[indexPath.row].name
     }
     
-    func recipeSearchCategoryFetchingFailed(withError error: Error) {
-        view?.hideLoadingIndicator()
-        view?.showAlert(message: error.localizedDescription)
-    }
     
 }
