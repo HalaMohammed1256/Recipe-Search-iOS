@@ -8,5 +8,9 @@
 import UIKit
 
 extension RecipeSearchViewController: UISearchBarDelegate{
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        presenter?.getSearchResult(searchText: searchBar.text ?? "")
+        
+    }
 }

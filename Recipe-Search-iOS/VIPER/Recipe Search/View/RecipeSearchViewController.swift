@@ -1,19 +1,20 @@
-//
-//  RecipeSearchViewController.swift
-//  Recipe-Search-iOS
-//
-//  Created by Hala on 28/11/2021.
-//
+
+
 
 import UIKit
+import JGProgressHUD
 
 class RecipeSearchViewController: UIViewController {
     
     // variables
-    
+    var presenter: RecipeSearchPresenterProtocol?
+    private let spinner = JGProgressHUD()
+        
     
     // outlets
     @IBOutlet weak var recipeSearchBar: UISearchBar!
+    @IBOutlet weak var noSearchResultScrollView: UIScrollView!
+    @IBOutlet weak var noSearchResultStateLabel: UILabel!
     @IBOutlet weak var recipeSearchCategoryCollectionView: UICollectionView!
     @IBOutlet weak var recipeSearchResultTableView: UITableView!
     
@@ -36,6 +37,7 @@ class RecipeSearchViewController: UIViewController {
     
     
     func configureEllement(){
+        title = "Recipes Search"
         setupDelegatesAndCells()
     }
     
@@ -54,4 +56,29 @@ class RecipeSearchViewController: UIViewController {
     }
    
 
+}
+
+
+extension RecipeSearchViewController: RecipeSearchViewProtocol{    
+    
+    func searchResultDataVisability(isHidden: Bool){
+        recipeSearchResultTableView.isHidden = isHidden
+        noSearchResultScrollView.isHidden = !isHidden
+    }
+    
+    func showAlert(message: String) {
+        showAlert(title: nil, message: message, style: .alert, okName: "OK", okHandler: nil, cancelName: "Cancel", cancelHandler: nil, isShowCancel: true)
+    }
+    
+    func showLoadingIndicator() {
+        spinner.show(in: self.view)
+    }
+    
+    func hideLoadingIndicator() {
+        spinner.dismiss()
+    }
+    
+    func reloadData() {
+        recipeSearchResultTableView.reloadData()
+    }    
 }

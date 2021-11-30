@@ -6,9 +6,9 @@
 //
 
 import UIKit
+import Kingfisher
 
-class RecipeResultTableViewCell: UITableViewCell {
-    
+class RecipeResultTableViewCell: UITableViewCell, RecipeSearchResultSearchCell {
     
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
@@ -25,5 +25,18 @@ class RecipeResultTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configure(model: RecipeData) {
+        if let image = model.image{
+            recipeImageView.kf.indicatorType = .activity
+            recipeImageView.kf.setImage(with: URL(string: image))
+        }
+        recipeNameLabel.text = model.label ?? "Recipe Name"
+        recipeSourceLabel.text = model.source ?? "Recipe Source Label"
+        let healthLabels = model.healthLabels?.joined().replacingOccurrences(of: ",", with: " ")
+        recipeHealthLabel.text = healthLabels
+        
+    }
+    
     
 }
