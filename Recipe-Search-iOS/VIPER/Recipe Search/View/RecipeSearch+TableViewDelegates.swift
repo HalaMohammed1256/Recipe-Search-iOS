@@ -1,9 +1,4 @@
-//
-//  RecipeSearch+TableViewDelegates.swift
-//  Recipe-Search-iOS
-//
-//  Created by Hala on 28/11/2021.
-//
+
 
 import UIKit
 
@@ -16,6 +11,10 @@ extension RecipeSearchViewController: UITableViewDelegate, UITableViewDataSource
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RecipeResultTableViewCell.self)) as? RecipeResultTableViewCell else{
             return UITableViewCell()
         }
+        let view = UIView()
+        view.backgroundColor = .clear
+        cell.selectedBackgroundView = view
+        
         presenter?.configureResult(cell: cell, indexPath: indexPath)
         return cell
     }

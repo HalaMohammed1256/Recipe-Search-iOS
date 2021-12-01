@@ -1,9 +1,4 @@
-//
-//  RecipeSearchProtocols.swift
-//  Recipe-Search-iOS
-//
-//  Created by Hala on 29/11/2021.
-//
+
 
 import UIKit
  
@@ -33,19 +28,17 @@ protocol RecipeSearchRouterProtocol: AnyObject {
     var viewController: UIViewController? { get set }
     static func createModule() -> UIViewController
 }
-
+ 
 // Interactor Protocols
 protocol RecipeSearchInteractorInputProtocol: AnyObject {
     var recipeSearchOutput: RecipeSearchInteractorOutputProtocol? { get set }
     func getSearchResult(searchText: String, filter: String?)
-    func getSearchCategory()
+    func setSearchHistory(searchText: String)
 }
 
 protocol RecipeSearchInteractorOutputProtocol: AnyObject {
     func recipeSearchResultFetchedSuccessfully(recipes: [Recipe])
     func recipeSearchResultFetchingFailed(withError error: Error)
-//    func recipeSearchCategoryFetchedSuccessfully() //??
-//    func recipeSearchCategoryFetchingFailed(withError error: Error)
 }
 
 // cells
@@ -54,5 +47,5 @@ protocol RecipeSearchResultSearchCellProtocol {
 }
 
 protocol RecipeSearchCategorySearchCellProtocol {
-    func configure(model: RecipeCategory) //??
+    func configure(model: RecipeCategory)
 }

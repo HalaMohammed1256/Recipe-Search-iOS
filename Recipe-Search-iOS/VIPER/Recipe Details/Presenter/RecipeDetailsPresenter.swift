@@ -1,18 +1,12 @@
-//
-//  RecipeDetailsPresenter.swift
-//  Recipe-Search-iOS
-//
-//  Created by Hala on 30/11/2021.
-//
+
 
 import Foundation
 
 
-class RecipeDetailsPresenter: RecipeDetailsPresenterProtocol, RecipeDetailsInteractorOutputProtocol {
+class RecipeDetailsPresenter: RecipeDetailsPresenterProtocol {
     
     
     weak var view: RecipeDetailsViewProtocol?
-    private var interactor: RecipeDetailsInteractorInputProtocol?
     private var router: RecipeDetailsRouterProtocol?
     private var recipeData: RecipeData?
     
@@ -20,9 +14,8 @@ class RecipeDetailsPresenter: RecipeDetailsPresenterProtocol, RecipeDetailsInter
         return recipeData?.ingredientLines?.count
     }
     
-    init(view: RecipeDetailsViewProtocol, interactor: RecipeDetailsInteractorInputProtocol, router: RecipeDetailsRouterProtocol) {
+    init(view: RecipeDetailsViewProtocol, router: RecipeDetailsRouterProtocol) {
         self.view = view
-        self.interactor = interactor
         self.router = router
     }
     

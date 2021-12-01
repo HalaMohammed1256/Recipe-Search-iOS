@@ -13,7 +13,6 @@
             <connections>
                 <outlet property="noSearchResultScrollView" destination="c3l-Ke-IR3" id="iGX-Q4-nNA"/>
                 <outlet property="noSearchResultStateLabel" destination="FAR-Pk-ImL" id="Nhg-vq-G9m"/>
-                <outlet property="recipeSearchBar" destination="vjw-LT-g9k" id="ZGs-GK-yRO"/>
                 <outlet property="recipeSearchCategoryCollectionView" destination="WCB-G2-CfK" id="lEs-3g-NJd"/>
                 <outlet property="recipeSearchResultTableView" destination="COv-lY-vIP" id="MlM-Aw-iAd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,15 +23,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="vjw-LT-g9k">
-                    <rect key="frame" x="16" y="60" width="382" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="JjJ-BX-Pbo"/>
-                    </constraints>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c3l-Ke-IR3">
-                    <rect key="frame" x="0.0" y="126" width="414" height="720"/>
+                    <rect key="frame" x="0.0" y="60" width="414" height="786"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Tr-hq-zAy">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="367"/>
@@ -71,7 +63,7 @@
                     </constraints>
                 </scrollView>
                 <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="WCB-G2-CfK">
-                    <rect key="frame" x="16" y="126" width="382" height="50"/>
+                    <rect key="frame" x="16" y="60" width="382" height="50"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="xQ0-Uu-N9E"/>
@@ -84,26 +76,23 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="COv-lY-vIP">
-                    <rect key="frame" x="16" y="192" width="382" height="654"/>
+                    <rect key="frame" x="16" y="126" width="382" height="720"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="c3l-Ke-IR3" firstAttribute="top" secondItem="vjw-LT-g9k" secondAttribute="bottom" constant="16" id="2Uc-ku-JKY"/>
-                <constraint firstItem="WCB-G2-CfK" firstAttribute="top" secondItem="vjw-LT-g9k" secondAttribute="bottom" constant="16" id="4x3-bf-git"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="c3l-Ke-IR3" secondAttribute="bottom" constant="16" id="DiT-SK-AHH"/>
-                <constraint firstItem="vjw-LT-g9k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Kb7-nR-ARh"/>
+                <constraint firstItem="c3l-Ke-IR3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="MII-HJ-TrB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WCB-G2-CfK" secondAttribute="trailing" constant="16" id="PGQ-TA-YZU"/>
                 <constraint firstAttribute="trailing" secondItem="c3l-Ke-IR3" secondAttribute="trailing" id="cPH-Tn-ndW"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="COv-lY-vIP" secondAttribute="bottom" constant="16" id="d4B-m4-9hv"/>
-                <constraint firstItem="vjw-LT-g9k" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="eze-Hv-BOj"/>
                 <constraint firstItem="COv-lY-vIP" firstAttribute="top" secondItem="WCB-G2-CfK" secondAttribute="bottom" constant="16" id="fJM-i3-hKz"/>
                 <constraint firstItem="c3l-Ke-IR3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ikb-6n-4tq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="COv-lY-vIP" secondAttribute="trailing" constant="16" id="qxu-DG-Edo"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vjw-LT-g9k" secondAttribute="trailing" constant="16" id="sZh-mt-Mvo"/>
                 <constraint firstItem="WCB-G2-CfK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="uQX-B9-8kY"/>
+                <constraint firstItem="WCB-G2-CfK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="yuu-1k-uAB"/>
                 <constraint firstItem="COv-lY-vIP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="zu3-RP-Bsb"/>
             </constraints>
             <point key="canvasLocation" x="37.681159420289859" y="85.714285714285708"/>

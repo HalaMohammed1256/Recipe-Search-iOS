@@ -1,13 +1,9 @@
-//
-//  RecipeDetailsTableViewCell.swift
-//  Recipe-Search-iOS
-//
-//  Created by Hala on 28/11/2021.
-//
+
 
 import UIKit
 
-class RecipeDetailsTableViewCell: UITableViewCell, configureRecipDetailsCellProtocol {
+class RecipeDetailsTableViewCell: UITableViewCell, configureRecipDetailsCellProtocol, configureSearchHistoryCellProtocol {
+    
 
     @IBOutlet weak var recipeDetailsLabel: UILabel!
     
@@ -29,6 +25,10 @@ class RecipeDetailsTableViewCell: UITableViewCell, configureRecipDetailsCellProt
         if let ingredient = recipeDataModel?.ingredient{
             recipeDetailsLabel.text = ingredient
         }
+    }
+    
+    func configure(history: String) {
+        recipeDetailsLabel.text = history
     }
     
 }

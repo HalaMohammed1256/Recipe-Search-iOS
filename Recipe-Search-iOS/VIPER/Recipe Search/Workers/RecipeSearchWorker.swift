@@ -1,12 +1,7 @@
-//
-//  RecipeSearchWorker.swift
-//  Recipe-Search-iOS
-//
-//  Created by Hala on 29/11/2021.
-//
+
 
 import Foundation
-
+ 
 
 class RecipeSearchWorker{
     func getSearchResult(searchText: String, filter: String?, isFinishCompletionWithResult: @escaping (Result<RecipeSearch>) -> Void) {

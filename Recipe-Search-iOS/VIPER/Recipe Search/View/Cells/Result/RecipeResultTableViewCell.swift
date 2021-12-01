@@ -1,9 +1,3 @@
-//
-//  RecipeResultTableViewCell.swift
-//  Recipe-Search-iOS
-//
-//  Created by Hala on 28/11/2021.
-//
 
 import UIKit
 import Kingfisher
@@ -33,7 +27,7 @@ class RecipeResultTableViewCell: UITableViewCell, RecipeSearchResultSearchCellPr
         }
         recipeNameLabel.text = model.label ?? "Recipe Name"
         recipeSourceLabel.text = model.source ?? "Recipe Source Label"
-        let healthLabels = model.healthLabels?.joined(separator: "| ")//joined().replacingOccurrences(of: ",", with: " ")
+        let healthLabels = model.healthLabels?.joined(separator: " | ")//joined().replacingOccurrences(of: ",", with: " ")
         recipeHealthLabel.text = healthLabels
         
     }

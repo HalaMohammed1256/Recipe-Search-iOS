@@ -1,9 +1,4 @@
-//
-//  RecipeSearch+CollectionViewDelegates.swift
-//  Recipe-Search-iOS
-//
-//  Created by Hala on 28/11/2021.
-//
+
 
 import UIKit
 
@@ -31,9 +26,9 @@ extension RecipeSearchViewController: UICollectionViewDelegate, UICollectionView
             collectionView.cellForItem(at: previous_index)?.borderColor = .clear
             categorySelectedIndex = indexPath.row
             collectionView.cellForItem(at: indexPath)?.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
-        }
+        } 
         let filter = presenter?.categories[indexPath.row].filterAPIName
-        presenter?.getSearchResult(searchText: recipeSearchBar.text ?? "", filter: filter)
+        presenter?.getSearchResult(searchText: searchControllerText ?? "", filter: filter)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

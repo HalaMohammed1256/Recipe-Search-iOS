@@ -1,9 +1,3 @@
-//
-//  UIViewController+Extension.swift
-//  Recipe-Search-iOS
-//
-//  Created by Hala on 28/11/2021.
-//
 
 import UIKit
 import SafariServices
@@ -38,6 +32,13 @@ extension UIViewController{
             let viewController = SFSafariViewController(url: url, configuration: configuration)
             self.present(viewController, animated: true, completion: nil)
         }
+    }
+    
+    
+    func shareData(data: [Any], barButtonItem: UIBarButtonItem?){
+        let activityViewController = UIActivityViewController(activityItems: data, applicationActivities: [])
+        activityViewController.popoverPresentationController?.barButtonItem = barButtonItem
+        present(activityViewController, animated: true, completion: nil)
     }
     
     

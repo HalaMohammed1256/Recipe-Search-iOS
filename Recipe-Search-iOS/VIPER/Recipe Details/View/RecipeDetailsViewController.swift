@@ -21,15 +21,6 @@ class RecipeDetailsViewController: UIViewController {
         configureEllement()
     }
 
-
-    init() {
-        super.init(nibName: String(describing: RecipeDetailsViewController.self), bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     func configureEllement(){
         title = "Recipe Details"
         setupDelegatesAndCells()
@@ -38,6 +29,7 @@ class RecipeDetailsViewController: UIViewController {
             recipeImageView.kf.indicatorType = .activity
             recipeImageView.kf.setImage(with: URL(string: image))
         }
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
     }
     
     func setupDelegatesAndCells(){
@@ -47,6 +39,11 @@ class RecipeDetailsViewController: UIViewController {
         recipeDetailsTableView.registerCell(cellClass: RecipeDetailsTableViewCell.self)
     }
     
+    
+    @objc func shareTapped(){
+        guard let recipeURL = recipeData?.url else{ return }
+        shareData(data: [recipeURL], barButtonItem: navigationItem.rightBarButtonItem)
+    }
     
     @IBAction func goToRecipeWebsiteTapped(_ sender: Any) {
         self.openInsideUrl(url_string: recipeData?.url)

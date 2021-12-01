@@ -10,11 +10,12 @@ class RecipeSearchViewController: UIViewController {
     var presenter: RecipeSearchPresenterProtocol?
     private let spinner = JGProgressHUD()
     var categorySelectedIndex = 0
-    var searchText: String?
-        
+    var searchControllerText: String?
+            
+    
+    var searchController = UISearchController(searchResultsController: SearchHistoryRouter().createModule())
     
     // outlets
-    @IBOutlet weak var recipeSearchBar: UISearchBar!
     @IBOutlet weak var noSearchResultScrollView: UIScrollView!
     @IBOutlet weak var noSearchResultStateLabel: UILabel!
     @IBOutlet weak var recipeSearchCategoryCollectionView: UICollectionView!
@@ -23,29 +24,28 @@ class RecipeSearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureEllement()
-
-    }
-
-
-    init() {
-        super.init(nibName: String(describing: RecipeSearchViewController.self), bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
     }
-    
+            
     
     func configureEllement(){
         title = "Recipes Search"
+        navigationItem.searchController = searchController
+        searchController.searchBar.placeholder = "What are you looking for?"
         noSearchResultStateLabel.text = "Type your recipe that you searching for"
         setupDelegatesAndCells()
     }
     
     func setupDelegatesAndCells(){
-        recipeSearchBar.delegate = self
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
         
         recipeSearchCategoryCollectionView.delegate = self
         recipeSearchCategoryCollectionView.dataSource = self
@@ -91,4 +91,13 @@ extension RecipeSearchViewController: RecipeSearchViewProtocol{
         recipeSearchResultTableView.reloadData()
         recipeSearchCategoryCollectionView.reloadData()
     }    
+}
+
+
+extension RecipeSearchViewController: HistorySearchDelegationPattern{
+    func searchByHistory(history: String) {
+        searchController.searchBar.text = ""
+        searchControllerText = history
+        presenter?.getSearchResult(searchText: history, filter: nil)
+    }
 }

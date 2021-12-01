@@ -1,9 +1,4 @@
-//
-//  UIView+Extension.swift
-//  Recipe-Search-iOS
-//
-//  Created by Hala on 28/11/2021.
-//
+
 
 import UIKit
 
@@ -17,8 +12,6 @@ import UIKit
             return layer.cornerRadius
         }
     }
-
-    // round corners d95909
     
     
     @IBInspectable var borderSize: CGFloat{

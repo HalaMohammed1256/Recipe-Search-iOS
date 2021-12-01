@@ -1,13 +1,8 @@
-//
-//  RecipeDetailsProtocols.swift
-//  Recipe-Search-iOS
-//
-//  Created by Hala on 30/11/2021.
-//
+
 
 import UIKit
 
-
+ 
 protocol RecipeDetailsViewProtocol: AnyObject{
     var presenter: RecipeDetailsPresenterProtocol? { get set }
     func showAlert(message: String)
@@ -26,14 +21,6 @@ protocol RecipeDetailsPresenterProtocol: AnyObject{
 protocol RecipeDetailsRouterProtocol: AnyObject{
     var viewController: UIViewController? { get set }
     func createModule() -> UIViewController
-}
-
-protocol RecipeDetailsInteractorInputProtocol: AnyObject{
-    var recipeDetailsOutput: RecipeDetailsInteractorOutputProtocol? { get set }
-}
-
-protocol RecipeDetailsInteractorOutputProtocol: AnyObject{
-    
 }
 
 

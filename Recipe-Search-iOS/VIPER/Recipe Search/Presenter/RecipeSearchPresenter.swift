@@ -1,9 +1,4 @@
-//
-//  RecipeSearchPresenter.swift
-//  Recipe-Search-iOS
-//
-//  Created by Hala on 29/11/2021.
-//
+
 
 import Foundation
 
@@ -47,6 +42,7 @@ class RecipeSearchPresenter: RecipeSearchPresenterProtocol, RecipeSearchInteract
     private var interactor: RecipeSearchInteractorInputProtocol?
     private var router: RecipeSearchRouterProtocol?
     private var recipes = [Recipe]()
+    private var searchText = ""
     internal var categories: [RecipeCategory] = [.All, .Low_Sugar, .Keto, .Vegan]
     
     var numberOfSearchResultRow: Int{
@@ -62,18 +58,19 @@ class RecipeSearchPresenter: RecipeSearchPresenterProtocol, RecipeSearchInteract
         self.interactor = interactor
         self.router = router
     }
-    
+     
     func getSearchResult(searchText: String, filter: String?) {
         view?.showLoadingIndicator()
+        self.searchText = searchText
         interactor?.getSearchResult(searchText: searchText, filter: filter)
     }
-    
     
     func recipeSearchResultFetchedSuccessfully(recipes: [Recipe]) {
         if recipes.count == 0{
             view?.searchResultDataVisability(isHidden: true, message: "Your search not exist")
         }else{
             self.recipes = recipes
+            interactor?.setSearchHistory(searchText: searchText)
             view?.searchResultDataVisability(isHidden: false, message: "Type your recipe that you searching for")
         }
         view?.reloadData()
